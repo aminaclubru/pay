@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Оплата · Закрытый клуб Амины</title>
+<style>
+  :root{
+    --bg:#faf7f2; --card:#ffffff; --ink:#2b2622; --muted:#7a7066;
+    --accent:#6f8f6a; --accent-ink:#ffffff; --line:#ece5db; --pill:#f1ece3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased}
+  .wrap{max-width:560px; margin:0 auto; padding:20px 16px 48px}
+  .brand{font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:6px 0 14px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:22px 18px; box-shadow:0 1px 2px rgba(43,38,34,.04)}
+  h1{font-size:24px; line-height:1.25; margin-bottom:12px}
+  .price{display:inline-flex; align-items:baseline; gap:8px; background:var(--pill); border-radius:12px; padding:10px 16px; margin-bottom:6px}
+  .price b{font-size:26px}
+  .price span{color:var(--muted); font-size:14px}
+  .duration{color:var(--muted); font-size:14px; margin-bottom:16px}
+  h2{font-size:15px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:18px 0 10px}
+  ul.feats{list-style:none}
+  ul.feats li{padding:7px 0 7px 28px; position:relative; border-bottom:1px dashed var(--line); font-size:15px}
+  ul.feats li:last-child{border-bottom:none}
+  ul.feats li::before{content:"✓"; position:absolute; left:4px; color:var(--accent); font-weight:700}
+  ul.feats b{font-weight:600}
+  .note{background:var(--pill); border-radius:12px; padding:12px 14px; font-size:14px; color:var(--ink); margin:16px 0}
+  .guar{font-size:14px; color:var(--ink); margin:0 0 4px}
+  .checks{margin:18px 0 6px}
+  .check{display:flex; gap:10px; align-items:flex-start; border:1px solid var(--line); border-radius:12px; padding:12px; margin-bottom:10px; background:#fff}
+  .check input{width:22px; height:22px; flex:0 0 22px; margin-top:1px; accent-color:var(--accent)}
+  .check label{font-size:14px; color:var(--ink)}
+  .check a{color:var(--accent); text-decoration:underline}
+  .paybtn{display:block; width:100%; border:none; border-radius:14px; padding:16px; font-size:17px; font-weight:600; color:var(--accent-ink); background:var(--accent); cursor:pointer; transition:opacity .15s}
+  .paybtn:disabled{opacity:.35; cursor:not-allowed}
+  .smallprint{font-size:12px; color:var(--muted); margin:2px 0 12px}
+  .err{display:none; background:#fbeeea; border:1px solid #ecd4cc; color:#7a4635; border-radius:12px; padding:12px 14px; font-size:14px; margin-bottom:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="brand">Амина · Здоровье после 35</p>
+
+  <div class="card">
+    <div class="err" id="err">Ссылка на оплату устарела или открыта не из бота. Вернитесь в Telegram-бот и нажмите кнопку тарифа ещё раз 🤍</div>
+
+    <h1 id="t-title">Закрытый клуб</h1>
+    <div class="price"><b id="t-price">—</b><span id="t-once">один раз</span></div>
+    <p class="duration" id="t-duration"></p>
+
+    <p id="t-lead">Один платёж — и всё самое ценное о питании после 35 открыто для вас.</p>
+
+    <h2>Что вы получите</h2>
+    <ul class="feats">
+      <li><b>Книга рецептов клуба</b> — любимые блюда без сахара, с граммовками и КБЖУ</li>
+      <li><b>Готовые рационы на день</b> — завтрак, обед, перекус и ужин уже посчитаны</li>
+      <li><b>Списки покупок на неделю</b> — корзина за 15 минут</li>
+      <li><b>Разборы и хитрости</b> — вечерняя тяга к сладкому, сон, ровная энергия</li>
+      <li><b>«Стройность после 35»</b> — норма калорий, белок, домашние тренировки</li>
+      <li><b>Сезонные подборки</b> — осенние рецепты, ужины за 20 минут</li>
+    </ul>
+
+    <div class="note" id="t-note"></div>
+    <p class="guar">🛡 <b>Гарантия:</b> <span id="t-guar">в первые 3 дня напишите одно сообщение — и я верну деньги, без вопросов.</span></p>
+
+    <div class="checks">
+      <div class="check">
+        <input type="checkbox" id="c1">
+        <label for="c1">Принимаю <a href="https://telegra.ph/Publichnaya-oferta-10-22-42" target="_blank" rel="noopener">публичную оферту</a> и условия выбранного тарифа</label>
+      </div>
+      <div class="check">
+        <input type="checkbox" id="c2">
+        <label for="c2">Даю согласие на обработку персональных данных в соответствии с <a href="https://telegra.ph/Politika-obrabotki-personalnyh-dannyh-10-22-5" target="_blank" rel="noopener">политикой</a></label>
+      </div>
+    </div>
+
+    <p class="smallprint">Нажимая кнопку, вы подтверждаете согласие с документами. После оплаты вернитесь в Telegram — бот автоматически пришлёт доступ.</p>
+    <button class="paybtn" id="pay" disabled>Оплатить</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var T={
+    trial:  {title:"Пробные сутки в клубе",  price:"50 ₽",   dur:"Доступ на 24 часа",            lead:"За сутки вы увидите клуб изнутри: все файлы, рационы и списки покупок — без ограничений.", note:"Спишется 50 ₽ один раз. Никаких автосписаний и продлений: через 24 часа доступ просто закроется, если вы не выберете тариф.", guar:"не понравится в течение суток — напишите, и я верну 50 ₽."},
+    m1:     {title:"Клуб на 1 месяц",        price:"299 ₽",  dur:"Доступ на 1 месяц",            lead:"", note:"Спишется 299 ₽ один раз. Никаких автосписаний: когда месяц закончится, вы сами решите, продлевать ли.", guar:""},
+    m3:     {title:"Клуб на 3 месяца",       price:"749 ₽",  dur:"Доступ на 3 месяца",           lead:"", note:"Спишется 749 ₽ один раз. Никаких автосписаний и продлений без вашего решения.", guar:""},
+    m6:     {title:"Клуб на 6 месяцев",      price:"1290 ₽", dur:"Доступ на 6 месяцев",          lead:"", note:"Спишется 1290 ₽ один раз. Никаких автосписаний и продлений без вашего решения.", guar:""},
+    m12:    {title:"Клуб на 12 месяцев",     price:"1990 ₽", dur:"Доступ на 12 месяцев",         lead:"", note:"Спишется 1990 ₽ один раз. Никаких автосписаний и продлений без вашего решения.", guar:""},
+    forever:{title:"Клуб навсегда ♾",        price:"2990 ₽", dur:"Бессрочный доступ",            lead:"Один платёж — и клуб остаётся с вами навсегда: все файлы и обновления, без доплат.", note:"Спишется 2990 ₽ один раз. Никаких автосписаний. Доступ откроется сразу после оплаты и останется навсегда.", guar:""}
+  };
+  function q(name){
+    var h=location.href, m=h.match(new RegExp('[?&]'+name+'=([^&#]*)'));
+    return m?decodeURIComponent(m[1]):null;
+  }
+  var payIdx=location.href.indexOf('pay=');
+  var payLink=payIdx>-1?location.href.slice(payIdx+4):null;
+  var t=T[q('t')]||T.m1;
+
+  document.getElementById('t-title').textContent=t.title;
+  document.getElementById('t-price').textContent=t.price;
+  document.getElementById('t-duration').textContent=t.dur;
+  if(t.lead) document.getElementById('t-lead').textContent=t.lead;
+  document.getElementById('t-note').textContent=t.note;
+  if(t.guar) document.getElementById('t-guar').textContent=t.guar;
+  var btn=document.getElementById('pay');
+  btn.textContent='Оплатить '+t.price;
+
+  var ok=payLink && /^https?:\/\//.test(payLink);
+  if(!ok) document.getElementById('err').style.display='block';
+
+  var c1=document.getElementById('c1'), c2=document.getElementById('c2');
+  function upd(){ btn.disabled=!(c1.checked && c2.checked && ok); }
+  c1.addEventListener('change',upd); c2.addEventListener('change',upd);
+
+  btn.addEventListener('click',function(){
+    if(!btn.disabled && payLink) location.href=payLink;
+  });
+})();
+</script>
+</body>
+</html>
