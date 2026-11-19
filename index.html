@@ -19,6 +19,8 @@
   .price{display:inline-flex; align-items:baseline; gap:8px; background:var(--pill); border-radius:12px; padding:10px 16px; margin-bottom:6px}
   .price b{font-size:26px}
   .price span{color:var(--muted); font-size:14px}
+  .price s{color:var(--muted); font-size:16px}
+  .promo{display:none; background:#fde8e1; color:#b3401e; font-weight:600; font-size:14px; border-radius:999px; padding:4px 12px; margin-bottom:8px}
   .duration{color:var(--muted); font-size:14px; margin-bottom:16px}
   h2{font-size:15px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:18px 0 10px}
   ul.feats{list-style:none}
@@ -47,7 +49,8 @@
     <div class="err" id="err">Ссылка на оплату устарела или открыта не из бота. Вернитесь в Telegram-бот и нажмите кнопку тарифа ещё раз 🤍</div>
 
     <h1 id="t-title">Закрытый клуб</h1>
-    <div class="price"><b id="t-price">—</b><span id="t-once">один раз</span></div>
+    <div class="promo" id="t-promo"></div>
+    <div class="price"><b id="t-price">—</b><s id="t-old"></s><span id="t-once">один раз</span></div>
     <p class="duration" id="t-duration"></p>
 
     <p id="t-lead">Один платёж — и всё самое ценное о питании после 35 открыто для вас.</p>
@@ -84,12 +87,8 @@
 <script>
 (function(){
   var T={
-    trial:  {title:"Пробные сутки в клубе",  price:"50 ₽",   dur:"Доступ на 24 часа",            lead:"За сутки вы увидите клуб изнутри: все файлы, рационы и списки покупок — без ограничений.", note:"Спишется 50 ₽ один раз. Никаких автосписаний и продлений: через 24 часа доступ просто закроется, если вы не выберете тариф.", guar:"не понравится в течение суток — напишите, и я верну 50 ₽."},
-    m1:     {title:"Клуб на 1 месяц",        price:"299 ₽",  dur:"Доступ на 1 месяц",            lead:"Целый месяц рецептов без сахара, готовых рационов, списков покупок и всех новых файлов клуба.", note:"Спишется 299 ₽ один раз. Никаких автосписаний: когда месяц закончится, вы сами решите, продлевать ли.", guar:""},
-    m3:     {title:"Клуб на 3 месяца",       price:"749 ₽",  dur:"Доступ на 3 месяца",           lead:"", note:"Спишется 749 ₽ один раз. Никаких автосписаний и продлений без вашего решения.", guar:""},
-    m6:     {title:"Клуб на 6 месяцев",      price:"1290 ₽", dur:"Доступ на 6 месяцев",          lead:"Полгода со всеми файлами и обновлениями клуба — выходит 215 ₽ в месяц.", note:"Спишется 1290 ₽ один раз. Никаких автосписаний и продлений без вашего решения.", guar:""},
-    m12:    {title:"Клуб на 12 месяцев",     price:"1990 ₽", dur:"Доступ на 12 месяцев",         lead:"", note:"Спишется 1990 ₽ один раз. Никаких автосписаний и продлений без вашего решения.", guar:""},
-    forever:{title:"Клуб навсегда ♾",        price:"1500 ₽", dur:"Бессрочный доступ",            lead:"Один платёж — и клуб остаётся с вами навсегда: все файлы и каждое новое пополнение, без доплат и продлений.", note:"Спишется 1500 ₽ один раз. Никаких автосписаний. Доступ откроется сразу после оплаты и останется навсегда.", guar:""}
+    trial:  {title:"Пробные сутки в клубе",  price:"50 ₽",   dur:"Доступ на 24 часа",            lead:"За сутки вы увидите клуб изнутри: все файлы, рационы и списки покупок — без ограничений.", note:"Спишется 50 ₽ один раз. Никаких автосписаний и продлений: через 24 часа доступ просто закроется, если вы не оформите вечный доступ.", guar:"не понравится в течение суток — напишите, и я верну 50 ₽."},
+    forever:{title:"Клуб навсегда ♾",        price:"990 ₽", old:"1500 ₽", promo:"🔥 Акция до 26 ноября", dur:"Бессрочный доступ",            lead:"Один платёж — и клуб остаётся с вами навсегда: все файлы и каждое новое пополнение, без доплат и продлений.", note:"Спишется 990 ₽ один раз. Никаких автосписаний. Доступ откроется сразу после оплаты и останется навсегда.", guar:""}
   };
   function q(name){
     var h=location.href, m=h.match(new RegExp('[?&]'+name+'=([^&#]*)'));
@@ -97,10 +96,14 @@
   }
   var payIdx=location.href.indexOf('pay=');
   var payLink=payIdx>-1?location.href.slice(payIdx+4):null;
-  var t=T[q('t')]||T.m1;
+  var t=T[q('t')]||{title:"Закрытый клуб", price:"", dur:"", lead:"", note:"Спишется 0 ₽ один раз. Никаких автосписаний.", guar:""};
+  var sm=payLink&&payLink.match(/[?&]OutSum=([0-9.]+)/);
+  if(sm){var sum=Math.round(parseFloat(sm[1]))+' ₽'; if(sum!==t.price){t.price=sum; t.old=null; t.promo=null; t.note=t.note.replace(/Спишется [0-9 ]+ ₽/,'Спишется '+sum);}}
 
   document.getElementById('t-title').textContent=t.title;
   document.getElementById('t-price').textContent=t.price;
+  if(t.old) document.getElementById('t-old').textContent=t.old;
+  if(t.promo){var pe=document.getElementById('t-promo'); pe.textContent=t.promo; pe.style.display='inline-block';}
   document.getElementById('t-duration').textContent=t.dur;
   if(t.lead) document.getElementById('t-lead').textContent=t.lead;
   document.getElementById('t-note').textContent=t.note;
