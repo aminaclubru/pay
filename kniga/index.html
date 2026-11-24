@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кухня Амины — 90 рецептов без сахара</title>
+<meta name="description" content="Книга Амины: 90 рецептов без сахара на каждый день с КБЖУ, меню на неделю и списком покупок. PDF, 62 страницы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2E3B2C; --ink-soft:#56634F; --paper:#FAF7F0; --sage:#DCE5CF; --sage-deep:#B9C9A6;
+  --butter:#F4D27A; --beet:#8E2D56; --line:#E3DECF; --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:600px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Yeseva One',Georgia,serif;font-weight:400;line-height:1.12;color:var(--ink)}
+a{color:var(--beet)}
+:focus-visible{outline:3px solid var(--beet);outline-offset:3px;border-radius:6px}
+
+/* hero */
+.hero{padding:28px 0 36px;background:var(--sage);border-bottom-left-radius:36px;border-bottom-right-radius:36px}
+.brand{font-weight:700;font-size:15px;color:var(--ink-soft);display:flex;align-items:center;gap:8px}
+.brand span{width:28px;height:28px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font-size:15px}
+.hero h1{font-size:46px;margin:26px 0 10px}
+.hero .sub{font-size:19px;color:var(--ink-soft);max-width:30ch}
+.book{position:relative;margin:30px auto 8px;width:230px;height:300px;transform:rotate(-4deg)}
+.book .back{position:absolute;inset:10px -10px -10px 10px;background:var(--sage-deep);border-radius:6px 16px 16px 6px}
+.book .cover{position:absolute;inset:0;background:var(--paper);border-radius:4px 16px 16px 4px;box-shadow:0 18px 30px -18px rgba(46,59,44,.55);padding:26px 20px 20px 30px;display:flex;flex-direction:column}
+.book .cover:before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;background:var(--beet);border-radius:4px 0 0 4px}
+.book .em{font-size:30px;letter-spacing:6px}
+.book .t{font-family:'Yeseva One',serif;font-size:30px;line-height:1.05;margin-top:18px}
+.book .s{font-size:13px;color:var(--ink-soft);margin-top:8px;line-height:1.35}
+.book .n{margin-top:auto;font-family:'Yeseva One',serif;font-size:54px;color:var(--beet);line-height:1}
+.book .n small{font-family:'Manrope',sans-serif;font-size:13px;color:var(--ink-soft);display:block;font-weight:600}
+.price-tag{position:absolute;right:-28px;top:34px;width:92px;height:92px;border-radius:50%;background:var(--butter);display:grid;place-items:center;text-align:center;transform:rotate(10deg);font-weight:800;font-size:22px;line-height:1.05;box-shadow:0 8px 16px -10px rgba(0,0,0,.35)}
+.price-tag small{display:block;font-size:11px;font-weight:600}
+.cta{display:block;width:100%;text-align:center;background:var(--beet);color:var(--white);text-decoration:none;font-weight:800;font-size:18px;padding:18px 20px;border-radius:16px;border:none;cursor:pointer;margin-top:26px}
+.cta:hover{filter:brightness(1.07)}
+.hint{text-align:center;font-size:14px;color:var(--ink-soft);margin-top:10px}
+
+section{padding:46px 0 8px}
+section h2{font-size:32px;margin-bottom:14px}
+.lead{color:var(--ink-soft);margin-bottom:20px}
+
+/* index of sections, like book tabs */
+.index{border-top:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.row .tab{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;flex:none}
+.row .nm{font-weight:700;flex:1;line-height:1.3}
+.row .nm small{display:block;font-weight:500;color:var(--ink-soft);font-size:14px}
+.row .ct{font-size:14px;color:var(--ink-soft);white-space:nowrap}
+
+/* sample page */
+.sample{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px 20px;position:relative}
+.sample .pg{position:absolute;right:18px;top:16px;font-size:13px;color:var(--ink-soft)}
+.sample h3{font-size:25px;margin-bottom:10px;padding-right:60px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.chip{background:var(--paper);border-radius:999px;padding:4px 11px;font-size:13px;font-weight:600;color:var(--ink-soft)}
+.chip.k{background:var(--sage);color:var(--ink)}
+.sample h4{font-size:15px;font-weight:800;margin:14px 0 6px}
+.sample ul,.sample ol{padding-left:20px;font-size:16px}
+.sample li{margin:3px 0}
+.tip{margin-top:14px;padding:12px 14px;background:#FBF1D2;border-radius:12px;font-size:15px}
+
+/* what you get */
+.get{display:grid;gap:12px}
+.get > div{display:flex;gap:14px;align-items:flex-start}
+.get b{display:block}
+.get .ic{font-size:24px;line-height:1.3;flex:none;width:32px;text-align:center}
+.get p{color:var(--ink-soft);font-size:15px}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:14px 0}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:22px;line-height:1;color:var(--beet);transition:transform .2s}
+details[open] summary:after{transform:rotate(45deg)}
+details p{color:var(--ink-soft);margin-top:8px;font-size:16px}
+
+/* checkout */
+.buy{background:var(--ink);color:var(--paper);border-radius:28px;padding:28px 22px;margin:46px 0 10px}
+.buy h2{color:var(--paper);font-size:30px}
+.buy .sum{display:flex;align-items:baseline;gap:10px;margin:12px 0 4px}
+.buy .sum b{font-family:'Yeseva One',serif;font-size:46px;font-weight:400;color:var(--butter);white-space:nowrap}
+.buy .sum span{color:#C9D3BE;flex:1}
+.buy .note{color:#C9D3BE;font-size:15px;margin-bottom:18px}
+.check{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.06);border-radius:14px;padding:13px 14px;margin-bottom:10px;font-size:15px;line-height:1.45}
+.check input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--butter)}
+.check a{color:var(--butter)}
+.buy .cta{background:var(--butter);color:var(--ink);margin-top:16px}
+.buy .cta:disabled{opacity:.4;cursor:not-allowed}
+.buy .after{font-size:14px;color:#C9D3BE;margin-top:12px;text-align:center}
+footer{padding:26px 0 40px;font-size:13px;color:var(--ink-soft);text-align:center;line-height:1.7}
+@media (min-width:640px){.hero h1{font-size:58px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+ <div class="wrap">
+  <div class="brand"><span>🤍</span>Книга Амины</div>
+  <h1>Кухня Амины</h1>
+  <p class="sub">90 рецептов без сахара на каждый день: от сырников до шоколадного мусса</p>
+  <div class="book" aria-hidden="true">
+   <div class="back"></div>
+   <div class="cover">
+    <div class="em">🥞🥗🍫</div>
+    <div class="t">Кухня<br>Амины</div>
+    <div class="s">рецепты без сахара<br>на каждый день</div>
+    <div class="n">90<small>рецептов с КБЖУ</small></div>
+   </div>
+   <div class="price-tag">490 ₽<small>один раз</small></div>
+  </div>
+  <a class="cta" href="#buy">Купить книгу за 490 ₽</a>
+  <p class="hint">PDF на 62 страницы. Придёт в директ сразу после оплаты</p>
+ </div>
+</header>
+
+<main class="wrap">
+
+ <section>
+  <h2>Что внутри</h2>
+  <p class="lead">9 разделов по 10 рецептов. Ни одного грамма белого сахара, продукты из обычного магазина.</p>
+  <div class="index">
+   <div class="row"><div class="tab" style="background:#F6E3C8">🥞</div><div class="nm">Завтраки<small>сырники, гречневые блины, чиа-пудинг</small></div><div class="ct">10 рецептов</div></div>
+   <div class="row"><div class="tab" style="background:#DCE5CF">🥣</div><div class="nm">Супы<small>тыквенный крем-суп, щи, финский суп с лососем</small></div><div class="ct">10 рецептов</div></div>
+   <div class="row"><div class="tab" style="background:#F2D9CF">🍗</div><div class="nm">Мясо и птица<small>чахохбили, тефтели, гречаники</small></div><div class="ct">10 рецептов</div></div>
+   <div class="row"><div class="tab" style="background:#D8E7EA">🐟</div><div class="nm">Рыба и морепродукты<small>хек в сметане, креветки, боул с лососем</small></div><div class="ct">10 рецептов</div></div>
+   <div class="row"><div class="tab" style="background:#E3ECD6">🥦</div><div class="nm">Гарниры и овощи<small>драники в духовке, брокколи-чипсы</small></div><div class="ct">10 рецептов</div></div>
+   <div class="row"><div class="tab" style="background:#ECEED3">🥗</div><div class="nm">Салаты<small>«Щётка», коул слоу на йогурте, винегрет</small></div><div class="ct">10 рецептов</div></div>
+   <div class="row"><div class="tab" style="background:#F6E6D0">🥧</div><div class="nm">Выпечка без сахара<small>банановый хлеб, шарлотка, брауни из нута</small></div><div class="ct">10 рецептов</div></div>
+   <div class="row"><div class="tab" style="background:#F0DDE3">🍫</div><div class="nm">Десерты<small>чизкейк без выпечки, «Сникерс», мороженое</small></div><div class="ct">10 рецептов</div></div>
+   <div class="row"><div class="tab" style="background:#E9E5D8">🫙</div><div class="nm">Перекусы, соусы и напитки<small>шоколадная паста, хумус, гранола</small></div><div class="ct">10 рецептов</div></div>
+  </div>
+ </section>
+
+ <section>
+  <h2>Так выглядит каждый рецепт</h2>
+  <p class="lead">Граммовки, время, КБЖУ на порцию и совет, чтобы получилось с первого раза.</p>
+  <article class="sample">
+   <div class="pg">стр. 7</div>
+   <h3>Сырники из духовки</h3>
+   <div class="chips"><span class="chip">⏱ 35 мин</span><span class="chip">8 сырников</span><span class="chip k">382 ккал · Б 41 · Ж 15 · У 23</span></div>
+   <h4>Продукты</h4>
+   <ul><li>творог 5% — 400 г</li><li>яйцо — 1 шт.</li><li>овсяная мука — 40 г</li><li>мёд — 1 ч. л. (по желанию)</li><li>ванилин, щепотка соли</li></ul>
+   <h4>Приготовление</h4>
+   <ol><li>Разогрейте духовку до 180 °C, застелите противень бумагой.</li><li>Разомните творог, вмешайте яйцо, мёд, ванилин и соль.</li><li>Добавьте муку: масса мягкая, но держит форму.</li><li>Слепите 8 сырников и запекайте 20–25 минут.</li></ol>
+   <div class="tip">💡 Творог берите сухой. Если он влажный, отожмите его через марлю 15 минут.</div>
+  </article>
+ </section>
+
+ <section>
+  <h2>Что вы получите</h2>
+  <div class="get">
+   <div><div class="ic">📖</div><div><b>Книгу на 62 страницы в PDF</b><p>Удобно читать с телефона прямо на кухне и можно распечатать.</p></div></div>
+   <div><div class="ic">📊</div><div><b>КБЖУ к каждому рецепту</b><p>Калории, белки, жиры и углеводы на порцию уже посчитаны.</p></div></div>
+   <div><div class="ic">🗓</div><div><b>Меню на неделю</b><p>Завтраки, обеды, ужины и перекусы из рецептов книги: ничего не нужно придумывать.</p></div></div>
+   <div><div class="ic">🛒</div><div><b>Список покупок</b><p>Всё, что нужно для меню, разложено по отделам магазина.</p></div></div>
+   <div><div class="ic">🍯</div><div><b>Гид «Как готовить без сахара»</b><p>Чем заменить сахар, муку, сливки и майонез, чтобы было так же вкусно.</p></div></div>
+  </div>
+ </section>
+
+ <section>
+  <h2>Вопросы</h2>
+  <details><summary>Как я получу книгу?</summary><p>Сразу после оплаты я пришлю вам в директ Instagram сообщение со ссылкой на книгу. Откройте её и сохраните PDF на телефон или компьютер.</p></details>
+  <details><summary>Что делать, если сообщение не пришло?</summary><p>Подождите 15 минут и проверьте запросы в директе. Если ссылки нет, напишите в поддержку в Telegram <a href="https://t.me/aminazdorov_help">@aminazdorov_help</a> или на почту amina1965m@mail.ru — пришлём книгу вручную.</p></details>
+  <details><summary>Это подписка?</summary><p>Нет. Вы платите один раз, книга остаётся у вас навсегда. Никаких автосписаний.</p></details>
+  <details><summary>Рецепты сложные?</summary><p>Нет. Большинство блюд готовится за 20–40 минут из продуктов обычного магазина: творог, курица, овощи, крупы.</p></details>
+  <details><summary>Подойдёт ли книга при диабете или на диете?</summary><p>В рецептах нет белого сахара, но книга не заменяет рекомендаций врача. При заболеваниях согласуйте рацион со специалистом.</p></details>
+ </section>
+
+ <div class="buy" id="buy">
+  <h2>Кухня Амины</h2>
+  <div class="sum"><b>490 ₽</b><span>один раз, без подписок</span></div>
+  <p class="note">90 рецептов, меню на неделю и список покупок в одном PDF.</p>
+  <label class="check"><input type="checkbox" id="c1"><span>Принимаю условия <a href="oferta.html" target="_blank" rel="noopener">публичной оферты</a></span></label>
+  <label class="check"><input type="checkbox" id="c2"><span>Даю согласие на обработку персональных данных по <a href="https://telegra.ph/Politika-obrabotki-personalnyh-dannyh-10-22-5" target="_blank" rel="noopener">политике</a></span></label>
+  <button class="cta" id="pay" disabled>Оплатить 490 ₽</button>
+  <p class="after" id="after">После оплаты книга придёт вам в директ Instagram</p>
+ </div>
+
+</main>
+<footer>
+ Самозанятый Алексеев Алекс Алексеевич, ИНН 773374597769<br>
+ <a href="oferta.html">Публичная оферта</a> · поддержка <a href="https://t.me/aminazdorov_help">@aminazdorov_help</a>
+</footer>
+
+<script>
+(function(){
+  var i=location.href.indexOf('pay='); var link=i>-1?location.href.slice(i+4):null;
+  var ok=!!(link && /^https:\/\/auth\.robokassa\.ru\//.test(link));
+  var btn=document.getElementById('pay'), c1=document.getElementById('c1'), c2=document.getElementById('c2');
+  if(!ok){
+    btn.textContent='Получить ссылку на оплату';
+    document.getElementById('after').innerHTML='Напишите мне в директ слово «книга» — пришлю персональную ссылку на оплату';
+  }
+  function upd(){ btn.disabled=!(c1.checked&&c2.checked); }
+  c1.addEventListener('change',upd); c2.addEventListener('change',upd);
+  btn.addEventListener('click',function(){
+    if(btn.disabled) return;
+    location.href = ok ? link : 'https://ig.me/m/amina.zdorovie';
+  });
+})();
+</script>
+</body>
+</html>
